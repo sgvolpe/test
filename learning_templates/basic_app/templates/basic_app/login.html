@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+  <h1>Welcome to Registration</h1>
+
+  <div class="jumbotron">
+    {% if registered %}
+      <h1>Please login</h1>
+    {% else %}
+    <h1>Fill out the form:</h1>
+    <form class="" action="{% url 'user_login'%}" method="post" >
+      {% csrf_token %}
+      <label for="username">username</label>
+      <input type="text" name="username" value="">
+      <label for="password">password</label>
+      <input type="password" name="password" value="">
+      <input type="submit" name="" value="Login">
+    </form>
+    {% endif %}
+  </div>
+{% endblock %}
